@@ -7,11 +7,11 @@ pipeline {
                 sh "ls -l"
             }
         }
-
-        post {
-            always {
-                archiveArtifacts artifacts: '*.html'
-            }
+    }
+    post {
+        always {
+            archiveArtifacts artifacts: '*.html'
         }
     }
+    
 }
