@@ -10,7 +10,7 @@ pipeline {
     }
     post {
         always {
-            archiveArtifacts artifacts: '*.html'
+            archiveArtifacts artifacts: '*.md'
         }
     }
     
