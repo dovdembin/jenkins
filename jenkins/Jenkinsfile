@@ -5,7 +5,7 @@ node {
     stage('Build') {
         echo 'Building....'
         echo 'Building nerw feature'
-        releasenotes()
+       
     }
     stage('Test') {
         echo 'Testing....'
