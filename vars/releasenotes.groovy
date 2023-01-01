@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat
 
 @NonCPS
 def call(Map config=[:]){
-	 println("koko")
+	 def x = 10
     
 	
 }
