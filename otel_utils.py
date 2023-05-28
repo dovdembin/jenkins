@@ -17,5 +17,3 @@ methods = {
     "method3": method3
 }
 
-# Example usage: Call method1 with arguments "argument1" and "argument2"
-methods["method1"]("argument1", "argument2")

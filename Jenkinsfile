@@ -9,7 +9,7 @@ node {
         def end_status = "Successemo29"
         def koko = "kokoloko"
 
-        def output = sh(script: 'python3 otel_utils.py method3', returnStdout: true).trim()
+        def output = sh(script: 'python3 otel_utils.py methods["method3"]()', returnStdout: true).trim()
         println "python3 script output: ${output}"
 
 
