@@ -15,8 +15,6 @@ node {
         // def output = sh(script: 'python3 otel_utils.py method3 ${arg1} ${arg2}', returnStdout: true).trim()
         // println "python3 script output: ${output}"
 
-        
-
         sh(script: """
         $(python3 otel_utils.py method3 ${arg1} ${arg2})
         echo "this is the hostname:"  \$(hostname)
