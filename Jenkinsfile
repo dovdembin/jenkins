@@ -4,6 +4,7 @@ node {
 
     stage('Preparation') { // for display purposes
         git branch: 'main', url: 'https://github.com/dovdembin/jenkins.git'
+        ll
         def config_base_name = "dd2"
         def end_status = "Successemo29"
         def koko = "kokoloko"
