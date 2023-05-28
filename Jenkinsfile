@@ -9,15 +9,15 @@ node {
         def end_status = "Successemo29"
         def koko = "kokoloko"
 
-        // def arg1 = "MLK-EX1\|MLK-EX2\|MLK-EX3\|MLK-EX4,PhysicalLG".replace("\\|", ",")
-        // def arg2 = "WK-D0097"
+        def labels = "MLK-EX1\\|MLK-EX2\\|MLK-EX3\\|MLK-EX4,PhysicalLG"
+        def arg1 = getLabels("-l ${labels}")
+        def arg2 = "WK-D0097"
         // def output = sh(script: 'python3 otel_utils.py method3 ${arg1} ${arg2}', returnStdout: true).trim()
         // println "python3 script output: ${output}"
 
+        
 
         sh(script: """
-        arg1 = "MLK-EX1\|MLK-EX2\|MLK-EX3\|MLK-EX4,PhysicalLG".replace("\\|", ",")
-        arg2 = "WK-D0097"
         $(python3 otel_utils.py method3 ${arg1} ${arg2})
         echo "this is the hostname:"  \$(hostname)
         #tmpfile="\$(mktemp /tmp/dockerEnvXXXXX)"
@@ -48,4 +48,14 @@ node {
         """, label: "Report OTel", returnStatus: true)
     }
     
+}
+
+def getLabels(String str) {
+	def pattern = /.*-l\s(.*)/
+	if(str ==~ pattern) {
+		def (word1) = str =~ pattern
+		return word1[1].toString().replaceAll(/\\\|/, ",").trim()
+	} else {
+		return "noMatch"
+	}
 }
