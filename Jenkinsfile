@@ -23,6 +23,7 @@ node {
         #fi
         echo "test.status=${end_status}" >> "\$file_path"
         echo "test.name=${config_base_name}" >> "\$file_path"
+        python otel_utils.py
         echo "str[]:my-array=a,c" >> "\$file_path"
         docker run --rm -v /tmp:/tmp -e OTEL_EXPORTER_OTLP_ENDPOINT dell/opentelemetry-cli:0.4.0 metric counter tridevlab.test-counter --attribute-file "\$file_path"
         rm "\$file_path"
