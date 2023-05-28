@@ -16,7 +16,7 @@ node {
         // println "python3 script output: ${output}"
 
         sh(script: """
-        sdfs=$(python3 otel_utils.py method3 ${arg1} ${arg2})
+        sdfs=\$(python3 otel_utils.py method3 ${arg1} ${arg2})
         echo "this is the hostname:"  \$(hostname)
         #tmpfile="\$(mktemp /tmp/dockerEnvXXXXX)"
         #echo "test.status=${end_status}" >> "\$tmpfile"
