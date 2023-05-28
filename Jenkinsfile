@@ -10,7 +10,7 @@ node {
         def koko = "kokoloko"
 
         res = sh(script: "python3 otel_utils.py", returnStdout: true, label: "labels allocation")
-        echo $res
+        println("this is the res" + res)
         sh(script: """
         echo "this is the hostname:"  \$(hostname)
         #tmpfile="\$(mktemp /tmp/dockerEnvXXXXX)"
