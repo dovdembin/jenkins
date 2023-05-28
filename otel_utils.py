@@ -1,4 +1,4 @@
 #!/usr/bin/python
 
 def fund():
-    print("asdf")
+    return "koko"

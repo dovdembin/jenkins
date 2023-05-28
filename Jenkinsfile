@@ -9,8 +9,8 @@ node {
         def end_status = "Successemo29"
         def koko = "kokoloko"
 
-        res = sh(script: "python3 otel_utils.py fund", returnStdout: true, label: "labels allocation")
-        println("this is the res" + res)
+        def res = sh(script: "python3 otel_utils.py", returnStdout: true).trim()
+        println("this is the res" + ${res})
         sh(script: """
         echo "this is the hostname:"  \$(hostname)
         #tmpfile="\$(mktemp /tmp/dockerEnvXXXXX)"
