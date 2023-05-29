@@ -19,7 +19,7 @@ def getIntersection(String lables, String rig) {
 							curl -s --location '${labJungle_api}&name=${rig}' | jq  '.objects[].tags'
 						""", returnStdout: true, label: "xpool_allocation")
 	
-	def array1 = res.split(",")
+	def array1 = res.replaceAll("\"", "").split(",")
 	def array2 = lables.split(",")
 	println(res)
 	println(lables)
