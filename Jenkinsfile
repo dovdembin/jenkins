@@ -22,7 +22,9 @@ node {
         sh(script: """
 
         json_result=\$(curl -s --location '${labJungle_api}&name=WK-H2686')
-        echo \$json_result
+        echo \$json_result | jq  '.objects[].generation.name'
+        
+
         #sdfs=\$(python3 otel_utils.py method3 ${arg1} ${arg2})
         #echo "this is the hostname:"  \$(hostname)
         #tmpfile="\$(mktemp /tmp/dockerEnvXXXXX)"
