@@ -4,22 +4,22 @@ node {
 
 
     stage('Preparation') { // for display purposes
-        git branch: 'main', url: 'https://github.com/dovdembin/jenkins.git'
+        #git branch: 'main', url: 'https://github.com/dovdembin/jenkins.git'
         
-        def config_base_name = "dd2"
-        def end_status = "Successemo29"
-        def koko = "kokoloko"
+        #def config_base_name = "dd2"
+        #def end_status = "Successemo29"
+        #def koko = "kokoloko"
 
         def labels = "MLK-EX1\\|MLK-EX2\\|MLK-EX3\\|MLK-EX4,PhysicalLG"
         def arg1 = libOtel.getLabels("-l ${labels}")
-        def arg2 = "WK-D0097"
+        #def arg2 = "WK-D0097"
 
-        def LABJUNGLE_URL = "http://labjungle.devops.xiodrm.lab.emc.com"
-        def LABJUNGLE_KEY = "9703aa016d613b2b21bbb0e6833c3078c811a5d1"
+        #def LABJUNGLE_URL = "http://labjungle.devops.xiodrm.lab.emc.com"
+        #def LABJUNGLE_KEY = "9703aa016d613b2b21bbb0e6833c3078c811a5d1"
         // def output = sh(script: 'python3 otel_utils.py method3 ${arg1} ${arg2}', returnStdout: true).trim()
         // println "python3 script output: ${output}"
 
-        def labJungle_api="${LABJUNGLE_URL}/api/v1/cluster/?api_key=${LABJUNGLE_KEY}"
+        #def labJungle_api="${LABJUNGLE_URL}/api/v1/cluster/?api_key=${LABJUNGLE_KEY}"
         
         
         sh(script: """
