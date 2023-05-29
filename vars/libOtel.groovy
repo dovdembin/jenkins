@@ -14,7 +14,7 @@ def getLabels(String str) {
 }
 
 def getIntersection(String lables, String rig) {
-	def labJungle_api="${LABJUNGLE_URL}/api/v1/cluster/?api_key=${LABJUNGLE_KEY}"
+	def labJungle_api="LABJUNGLE_URL/api/v1/cluster/?api_key=LABJUNGLE_KEY"
 	def res = sh(script:"""
 							curl -s --location '${labJungle_api}&name=${rig}' | jq  '.objects[].tags'
 						""", returnStdout: true, label: "xpool_allocation")
