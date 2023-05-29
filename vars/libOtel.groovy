@@ -18,8 +18,7 @@ def getIntersection(String lables, String rig) {
 	def res = sh(script:"""
 							curl -s --location '${labJungle_api}&name=${rig}' | jq  '.objects[].tags'
 						""", returnStdout: true, label: "xpool_allocation")
-	return res
 	def array1 = res.split(",")
 	def array2 = lables.split(",")
-	def intersection = array1.intersect(array2)
+	return array1.intersect(array2)
 }
