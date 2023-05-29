@@ -12,7 +12,7 @@ def getLabels(String str) {
 }
 
 def getIntersection(String lables, String tags) {
-	ArrayList array1 = res.split(",")
+	ArrayList array1 = tags.split(",")
 	ArrayList array2 = lables.split(",")
 	return array1.intersect(array2)
 }
