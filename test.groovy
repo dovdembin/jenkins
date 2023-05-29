@@ -1,4 +1,4 @@
-@Library("jenkins-global-lib") _
+@Library("shared-library") _
 node {
     
 
