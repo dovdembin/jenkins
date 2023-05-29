@@ -7,8 +7,8 @@ node {
          
 
         def labels = "MLK-EX1\\|MLK-EX2\\|MLK-EX3\\|MLK-EX4,PhysicalLG"
-        def arg1 = testOtest.getLabels("-l ${labels}")
-         
+        def arg1 = libOtel.getLabels("-l ${labels}")
+        println(arg1)
     }
     
 }

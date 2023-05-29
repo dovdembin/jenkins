@@ -12,6 +12,7 @@ node {
 
         def labels = "MLK-EX1\\|MLK-EX2\\|MLK-EX3\\|MLK-EX4,PhysicalLG"
         def arg1 = testOtest.getLabels("-l ${labels}")
+        println(arg1)
         // def arg2 = "WK-D0097"
 
         // def LABJUNGLE_URL = "http://labjungle.devops.xiodrm.lab.emc.com"
