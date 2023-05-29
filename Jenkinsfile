@@ -18,10 +18,10 @@ node {
         // def output = sh(script: 'python3 otel_utils.py method3 ${arg1} ${arg2}', returnStdout: true).trim()
         // println "python3 script output: ${output}"
 
+        def labJungle_api="${LABJUNGLE_URL}/api/v1/cluster/?api_key=${LABJUNGLE_KEY}"
         sh(script: """
 
-        labJungle_api="${LABJUNGLE_URL}/api/v1/cluster/?api_key=${LABJUNGLE_KEY}"
-        curl -s --location \${labJungle_api}&name=WK-H2686
+        curl -s --location ${labJungle_api}&name=WK-H2686
 
         #sdfs=\$(python3 otel_utils.py method3 ${arg1} ${arg2})
         #echo "this is the hostname:"  \$(hostname)
