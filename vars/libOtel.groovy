@@ -11,7 +11,7 @@ def getLabels(String str) {
 	}
 }
 
-def getIntersection(String lables, String rig) {
+def getIntersection(String lables, String tags) {
 	
 	
 	
