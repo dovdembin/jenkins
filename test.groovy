@@ -1,5 +1,5 @@
 node {
-@Library('shared-library') _
+@Library('my-shared-library') _
     
 
 
