@@ -21,7 +21,7 @@ node {
         def labJungle_api="${LABJUNGLE_URL}/api/v1/cluster/?api_key=${LABJUNGLE_KEY}"
         sh(script: """
 
-        json_result=\$(curl -s --location ${labJungle_api}&name=WK-H2686)
+        json_result=\$(curl -s --location '${labJungle_api}&name=WK-H2686')
         echo \$json_result
         #sdfs=\$(python3 otel_utils.py method3 ${arg1} ${arg2})
         #echo "this is the hostname:"  \$(hostname)
