@@ -20,7 +20,8 @@ node {
         // println "python3 script output: ${output}"
 
         def labJungle_api="${LABJUNGLE_URL}/api/v1/cluster/?api_key=${LABJUNGLE_KEY}"
-        getLabels(${labels})
+        libOtel.checkLabels(${labels}, slave_name)
+        
         sh(script: """
 
         #json_result=\$(curl -s --location '${labJungle_api}&name=WK-H2686')
