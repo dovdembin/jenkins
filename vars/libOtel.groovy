@@ -20,7 +20,7 @@ def getIntersection(String lables, String rig) {
 						""", returnStdout: true, label: "xpool_allocation")
 	
 	def array1 = res.replaceAll("\"", "").split(",")
-	def array2 = lables.split(",")
+	def array2 = lables.split(", ")
 	println(res)
 	println(lables)
 	return array1.intersect(array2)
