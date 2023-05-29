@@ -21,7 +21,7 @@ def getIntersection(String lables, String rig) {
 	
 	def array1 = res.split(",")
 	def array2 = lables.split(",")
-	println(array1)
-	println(array2)
+	println(res)
+	println(lables)
 	return array1.intersect(array2)
 }
