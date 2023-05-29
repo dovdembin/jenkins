@@ -1,21 +1,16 @@
 @Library('my-shared-library') _
 pipeline {
     agent any
-    triggers { pollSCM('* * * * *') }
+     
     stages {
         stage('Build') {
             
             
             steps {
-                script {
-                    libOtel.getLabels("asdf")
-                }
+                 
+                helloWorld()
+                 
             }
-        }
-    }
-    post {
-        always {
-            archiveArtifacts artifacts: '*.md'
         }
     }
     
