@@ -3,11 +3,9 @@ pipeline {
     agent any
     triggers { pollSCM('* * * * *') }
     stages {
-        stage('Build') {
-            script {
             libOtel.getLabels("asdf")
-
-            }
+        stage('Build') {
+            
             steps {
                 sh "ls -l"
             }
