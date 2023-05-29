@@ -1,3 +1,4 @@
+@Library(['jenkins-global-lib'])
 node {
     
 
@@ -19,11 +20,15 @@ node {
         // println "python3 script output: ${output}"
 
         def labJungle_api="${LABJUNGLE_URL}/api/v1/cluster/?api_key=${LABJUNGLE_KEY}"
+
         sh(script: """
 
-        json_result=\$(curl -s --location '${labJungle_api}&name=WK-H2686')
-        echo \$json_result | jq  '.objects[].generation.name'
+        #json_result=\$(curl -s --location '${labJungle_api}&name=WK-H2686')
+        #echo \$json_result | jq  '.objects[].generation.name'
         
+        #echo \$json_result | jq  '.objects[].generation.name'
+
+
 
         #sdfs=\$(python3 otel_utils.py method3 ${arg1} ${arg2})
         #echo "this is the hostname:"  \$(hostname)
@@ -56,14 +61,4 @@ node {
         """, label: "Report OTel", returnStatus: true)
     }
     
-}
-
-def getLabels(String str) {
-	def pattern = /.*-l\s(.*)/
-	if(str ==~ pattern) {
-		def (word1) = str =~ pattern
-		return word1[1].toString().replaceAll(/\\\|/, ",").trim()
-	} else {
-		return "noMatch"
-	}
 }
