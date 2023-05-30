@@ -16,7 +16,7 @@ node {
             def labels_separator = libOtel.getLabels("-l ${labels}")
             def intersection = libOtel.getIntersection(labels_separator, tags)
             println(intersection)
-            println(libOtel.getGeneration )
+            println(libOtel.getGeneration(appliance) )
         }
     }
     
