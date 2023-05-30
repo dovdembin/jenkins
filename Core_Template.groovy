@@ -20,7 +20,8 @@ node {
             def tags2 = libOtel.getTags(appliances[1])
             def intersection1 = libOtel.getIntersection(labels_separator, tags1)
             def intersection2 = libOtel.getIntersection(labels_separator, tags2)
-            intersection_commas = intersection1.join(",") + intersection2.join(",")
+            intersection_commas = intersection1 + intersection2
+            intersection_commas += intersection_commas.join(",")
             generation="EX"
         } else {
             def tags = libOtel.getTags(appliance)
