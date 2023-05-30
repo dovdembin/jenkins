@@ -1,6 +1,3 @@
-
-
-
 def getLabels(String str) {
 	def pattern = /.*-l\s(.*)/
 	if(str ==~ pattern) {
