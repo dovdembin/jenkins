@@ -27,3 +27,20 @@ def getTags(String appliance) {
 	def tags = sh(script: cmd, returnStdout: true, label: "xpool_allocation")
 	return tags
 }
+
+def getFederation(String lables, String appliance) {
+	def pattern = /([A-Z][A-Z]-[A-Z]\d\d\d\d)-([A-Z][A-Z]-[A-Z]\d\d\d\d)-.*/
+	def m1
+	def m2
+	if(appliance ==~ pattern){
+		def (res1) = appliance =~ pattern
+		m1 = res1[1]
+		m2 = res1[2]
+	}
+	tags1 = getTags(m1)
+	tags2 = getTags(m2)
+	intersection1 = getIntersection(lables, tags1)
+	intersection2 = getIntersection(lables, tags2)
+	println(intersection1)
+	println(intersection2)
+}
