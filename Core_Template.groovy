@@ -31,7 +31,7 @@ node {
 
         sh(script: """
         docker run --rm -e OTEL_EXPORTER_OTLP_ENDPOINT \
-            afeoscyc-mw.cec.lab.emc.com/otel-cli-python:0.4.0 \
+            dell/opentelemetry-cli:0.4.0 \
             metric counter tridevlab.test-counter \
             -a "test.labels=${commonLabels}" \
             -a "test.generation=${generation}"
