@@ -41,9 +41,7 @@ def getFederation(String lables, String appliance) {
 	tags2 = getTags(m2)
 	intersection1 = getIntersection(lables, tags1)
 	intersection2 = getIntersection(lables, tags2)
-	println(intersection1)
-	println(intersection2)
-	println(getGeneration(m1))
-	println(getGeneration(m2))
-	return [intersection: intersection1 + intersection2, ,m1: getGeneration(m1), m2: getGeneration(m2)]
+	
+	
+	return [intersection: intersection1 + intersection2, ,m1: m1, m2: m2]
 }
