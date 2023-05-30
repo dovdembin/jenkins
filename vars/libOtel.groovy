@@ -1,5 +1,3 @@
-labJungle_api="${LABJUNGLE_URL}/api/v1/cluster/?api_key=${LABJUNGLE_KEY}"
-
 def getLabels(String str) {
 	def pattern = /.*-l\s(.*)/
 	if(str ==~ pattern) {
@@ -17,13 +15,13 @@ def getIntersection(String lables, String tags) {
 }
 
 def getGeneration(String appliance) {
-	def cmd = "curl -s --location '${labJungle_api}&name=${appliance} | jq  '.objects[].generation.name'"
+	def cmd = "curl -s --location ${LABJUNGLE_URL}/api/v1/cluster/?api_key=${LABJUNGLE_KEY}&name=${appliance} | jq  .objects[].generation.name"
 	def generation_name = sh(script: cmd, returnStdout: true, label: "xpool_allocation")
 	return generation_name
 }
 
 def getTags(String appliance) {
-	def cmd = "curl -s --location '${labJungle_api}&name=${appliance} | jq  '.objects[].tags'"
+	def cmd = "curl -s --location ${LABJUNGLE_URL}/api/v1/cluster/?api_key=${LABJUNGLE_KEY}&name=${appliance} | jq  .objects[].tags"
 	def tags = sh(script: cmd, returnStdout: true, label: "xpool_allocation")
 	return tags
 }
