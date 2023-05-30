@@ -8,7 +8,7 @@ node {
         // def labels = "MLK-EX1\\|MLK-EX2\\|MLK-EX3\\|MLK-EX4,PhysicalLG"
         // def appliance = "WK-D0089"
 
-        def labels = "EX\\|MLK,NVMeOF-FC,PhysicalLG,fc"
+        def labels = "Stratus,VirtualLG"
         def appliance = "WX-D1319"
         def pattern = /([A-Z][A-Z]-[A-Z]\d\d\d\d)-([A-Z][A-Z]-[A-Z]\d\d\d\d)-.*/
         def generation
