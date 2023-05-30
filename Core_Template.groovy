@@ -22,7 +22,10 @@ node {
             def intersection2 = libOtel.getIntersection(labels_separator, tags2)
             intersection_commas = intersection1 + intersection2
             intersection_commas += intersection_commas.join(",")
-            generation="EX"
+            def generation1 = generation=libOtel.getGeneration(appliances[0])
+            def generation2 = generation=libOtel.getGeneration(appliances[1])
+            generation = [generation1,generation2].join(",")
+
         } else {
             def tags = libOtel.getTags(appliance)
             def intersection = libOtel.getIntersection(labels_separator, tags)
@@ -35,7 +38,7 @@ node {
             dell/opentelemetry-cli:0.4.0 \
             metric counter tridevlab.test-counter \
             -a "str[]:test.my-array=${intersection_commas}" \
-            -a "test.generation=${generation}"
+            -a "str[]:test.generation=${generation}"
     """, label: "Report OTel", returnStatus: true)
     }
     
