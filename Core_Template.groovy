@@ -13,10 +13,10 @@ node {
         def pattern = /([A-Z][A-Z]-[A-Z]\d\d\d\d)-([A-Z][A-Z]-[A-Z]\d\d\d\d)-.*/
         if(appliance ==~ pattern) {
             def labels_separator = libOtel.getLabels("-l ${labels}")
-            map res =  libOtel.getFederation(labels_separator, appliance)
+            def map =  libOtel.getFederation(labels_separator, appliance)
             println(res.intersection)
-            println(res.m1)
-            println(res.m2)
+            println(map.m1)
+            println(map.m2)
         } else {
             def tags = libOtel.getTags(appliance)
             def labels_separator = libOtel.getLabels("-l ${labels}")
