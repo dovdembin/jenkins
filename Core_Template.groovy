@@ -8,9 +8,9 @@ node {
         // def labels = "MLK-EX1\\|MLK-EX2\\|MLK-EX3\\|MLK-EX4,PhysicalLG"
         // def appliance = "WK-D0089"
 
-        def labels = "Stratus,VirtualLG"
-        def appliance = "ST-H1008"
-        def labels_separator = libOtel.getLabels("-l ${labels}")
+        def labels = "-l EX\\|MLK\\|Riptide,CopperBlade\\|LightBlade"
+        def appliance = "RT-D0201-RT-D0197-federation-TAG"
+        def labels_separator = libOtel.getLabels("${labels}")
         def pattern = /([A-Z][A-Z]-[A-Z]\d\d\d\d)-([A-Z][A-Z]-[A-Z]\d\d\d\d)-.*/
         def generation
         def commonLabels
