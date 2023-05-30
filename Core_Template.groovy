@@ -16,17 +16,12 @@ node {
         if(appliance ==~ pattern) {
             def labels_separator = libOtel.getLabels("-l ${labels}")
             def map =  libOtel.getFederation(labels_separator, appliance)
-            // println(map.intersection)
-            // println(libOtel.getGeneration(map.m1))
-            // println(libOtel.getGeneration(map.m2))
         } else {
             def tags = libOtel.getTags(appliance)
             def labels_separator = libOtel.getLabels("-l ${labels}")
             def intersection = libOtel.getIntersection(labels_separator, tags)
             intersection_commas = intersection.join(",")
             generation = libOtel.getGeneration(appliance)
-            // println(intersection)
-            // println(libOtel.getGeneration(appliance))
         }
 
         sh(script: """
