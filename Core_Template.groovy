@@ -12,7 +12,7 @@ node {
         def appliance = "WX-D1319"
         def pattern = /([A-Z][A-Z]-[A-Z]\d\d\d\d)-([A-Z][A-Z]-[A-Z]\d\d\d\d)-.*/
         def generation
-        def labels
+        def commonLabels
         if(appliance ==~ pattern) {
             def labels_separator = libOtel.getLabels("-l ${labels}")
             def map =  libOtel.getFederation(labels_separator, appliance)
@@ -23,7 +23,7 @@ node {
             def tags = libOtel.getTags(appliance)
             def labels_separator = libOtel.getLabels("-l ${labels}")
             def intersection = libOtel.getIntersection(labels_separator, tags)
-            labels = intersection
+            commonLabels = intersection
             generation = libOtel.getGeneration(appliance)
             // println(intersection)
             // println(libOtel.getGeneration(appliance))
@@ -33,7 +33,7 @@ node {
         docker run --rm -e OTEL_EXPORTER_OTLP_ENDPOINT \
             afeoscyc-mw.cec.lab.emc.com/otel-cli-python:0.4.0 \
             metric counter tridevlab.test-counter \
-            -a "test.labels=${labels}" \
+            -a "test.labels=${commonLabels}" \
             -a "test.generation=${generation}"
     """, label: "Report OTel", returnStatus: true)
     }
