@@ -10,15 +10,20 @@ node {
 
         def labels = "Stratus,VirtualLG"
         def appliance = "ST-H1008"
+        def labels_separator = libOtel.getLabels("-l ${labels}")
         def pattern = /([A-Z][A-Z]-[A-Z]\d\d\d\d)-([A-Z][A-Z]-[A-Z]\d\d\d\d)-.*/
         def generation
         def commonLabels
         if(appliance ==~ pattern) {
-            def labels_separator = libOtel.getLabels("-l ${labels}")
-            def map =  libOtel.getFederation(labels_separator, appliance)
+            def appliances =  libOtel.getFederation(appliance)
+            def tags1 = libOtel.getTags(appliances[0])
+            def tags2 = libOtel.getTags(appliances[1])
+            def intersection1 = libOtel.getIntersection(labels_separator, tags1)
+            def intersection2 = libOtel.getIntersection(labels_separator, tags2)
+            intersection_commas = intersection1.join(",") + intersection2.join(",")
+            generation="EX"
         } else {
             def tags = libOtel.getTags(appliance)
-            def labels_separator = libOtel.getLabels("-l ${labels}")
             def intersection = libOtel.getIntersection(labels_separator, tags)
             intersection_commas = intersection.join(",")
             generation = libOtel.getGeneration(appliance)

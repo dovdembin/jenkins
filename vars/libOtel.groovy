@@ -28,7 +28,7 @@ def getTags(String appliance) {
 	return tags
 }
 
-def getFederation(String lables, String appliance) {
+def getFederation(String appliance) {
 	def pattern = /([A-Z][A-Z]-[A-Z]\d\d\d\d)-([A-Z][A-Z]-[A-Z]\d\d\d\d)-.*/
 	def m1
 	def m2
@@ -37,11 +37,5 @@ def getFederation(String lables, String appliance) {
 		m1 = res1[1]
 		m2 = res1[2]
 	}
-	tags1 = getTags(m1)
-	tags2 = getTags(m2)
-	intersection1 = getIntersection(lables, tags1)
-	intersection2 = getIntersection(lables, tags2)
-	
-	
-	return [intersection: intersection1 + intersection2, ,m1: m1, m2: m2]
+	return [m1,m2] as String[]
 }
