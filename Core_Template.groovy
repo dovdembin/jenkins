@@ -12,11 +12,12 @@ node {
 	    def labJungle_api="${LABJUNGLE_URL}/api/v1/cluster/?api_key=${LABJUNGLE_KEY}"
         def cmd = "curl -s --location '${labJungle_api}&name=${rig}'"
         def cmd_tags = cmd + " | jq  '.objects[].tags'" 
-        def tags = sh(script: cmd, returnStdout: true, label: "xpool_allocation")
+        def tags = sh(script: cmd_tags, returnStdout: true, label: "xpool_allocation")
         def labels_separator = libOtel.getLabels("-l ${labels}")
 
         def res = libOtel.getIntersection(labels_separator, tags)
         println(res)
+        println(cmd )
     }
     
 }
