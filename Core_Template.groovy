@@ -14,6 +14,11 @@ node {
         if(appliance ==~ pattern) {
             def labels_separator = libOtel.getLabels("-l ${labels}")
             libOtel.getFederation(labels_separator, appliance)
+            def (res1) = appliance =~ pattern
+		    m1 = res1[1]
+		    m2 = res1[2]
+            println(libOtel.getGeneration(m1) )
+            println(libOtel.getGeneration(m2) )
         } else {
             def tags = libOtel.getTags(appliance)
             def labels_separator = libOtel.getLabels("-l ${labels}")
