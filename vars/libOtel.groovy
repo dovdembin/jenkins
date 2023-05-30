@@ -43,4 +43,6 @@ def getFederation(String lables, String appliance) {
 	intersection2 = getIntersection(lables, tags2)
 	println(intersection1)
 	println(intersection2)
+	println(getGeneration(m1))
+	println(getGeneration(m2))
 }
