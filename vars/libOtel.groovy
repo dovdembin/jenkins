@@ -1,4 +1,4 @@
-def labJungle_api="${LABJUNGLE_URL}/api/v1/cluster/?api_key=${LABJUNGLE_KEY}"
+labJungle_api="${LABJUNGLE_URL}/api/v1/cluster/?api_key=${LABJUNGLE_KEY}"
 
 def getLabels(String str) {
 	def pattern = /.*-l\s(.*)/
