@@ -12,7 +12,7 @@ node {
 	    def labJungle_api="${LABJUNGLE_URL}/api/v1/cluster/?api_key=${LABJUNGLE_KEY}"
         def cmd = "curl -s --location '${labJungle_api}&name=${rig}'"
         def cmd_tags = cmd + " | jq  '.objects[].tags'" 
-        def cmd_name = cmd + " | jq  '..objects[].generation.name'"
+        def cmd_name = cmd + " | jq  '.objects[].generation.name'"
         def tags = sh(script: cmd_tags, returnStdout: true, label: "xpool_allocation")
         def generation = sh(script: cmd_name, returnStdout: true, label: "xpool_allocation")
         def labels_separator = libOtel.getLabels("-l ${labels}")
