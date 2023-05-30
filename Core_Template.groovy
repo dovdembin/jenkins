@@ -15,8 +15,8 @@ node {
             def labels_separator = libOtel.getLabels("-l ${labels}")
             def map =  libOtel.getFederation(labels_separator, appliance)
             println(map.intersection)
-            println(map.m1)
-            println(map.m2)
+            println(libOtel.getGeneration(map.m1))
+            println(libOtel.getGeneration(map.m2))
         } else {
             def tags = libOtel.getTags(appliance)
             def labels_separator = libOtel.getLabels("-l ${labels}")
