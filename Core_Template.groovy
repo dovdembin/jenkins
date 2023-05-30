@@ -12,7 +12,7 @@ node {
         def appliance = "RT-D0201-RT-D0197-federation-TAG"
         def pattern = /([A-Z][A-Z]-[A-Z]\d\d\d\d)-([A-Z][A-Z]-[A-Z]\d\d\d\d)-.*/
         if(appliance ==~ pattern) {
-
+            libOtel.getFederation(labels, appliance)
         } else {
             def tags = libOtel.getTags(appliance)
             def labels_separator = libOtel.getLabels("-l ${labels}")
