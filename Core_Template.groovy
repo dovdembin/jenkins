@@ -12,7 +12,7 @@ node {
         if(appliance ==~ pattern) {
 
         } else {
-            def tags = libOtel.getTags
+            def tags = libOtel.getTags(appliance)
             def labels_separator = libOtel.getLabels("-l ${labels}")
             def intersection = libOtel.getIntersection(labels_separator, tags)
             println(intersection)
