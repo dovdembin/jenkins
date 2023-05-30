@@ -23,7 +23,7 @@ node {
             def tags = libOtel.getTags(appliance)
             def labels_separator = libOtel.getLabels("-l ${labels}")
             def intersection = libOtel.getIntersection(labels_separator, tags)
-            commonLabels = intersection
+            intersection_commas = intersection.join(",")
             generation = libOtel.getGeneration(appliance)
             // println(intersection)
             // println(libOtel.getGeneration(appliance))
@@ -33,7 +33,7 @@ node {
         docker run --rm -e OTEL_EXPORTER_OTLP_ENDPOINT \
             dell/opentelemetry-cli:0.4.0 \
             metric counter tridevlab.test-counter \
-            -a "str[]:test.my-array=${commonLabels}.join(",")" \
+            -a "str[]:test.my-array=${intersection_commas}" \
             -a "test.generation=${generation}"
     """, label: "Report OTel", returnStatus: true)
     }
