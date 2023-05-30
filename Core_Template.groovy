@@ -14,7 +14,7 @@ node {
         if(appliance ==~ pattern) {
             def labels_separator = libOtel.getLabels("-l ${labels}")
             def map =  libOtel.getFederation(labels_separator, appliance)
-            println(res.intersection)
+            println(map.intersection)
             println(map.m1)
             println(map.m2)
         } else {
