@@ -9,7 +9,7 @@ node {
         // def appliance = "WK-D0089"
 
         def labels = "Stratus,VirtualLG"
-        def appliance = "WX-D1319"
+        def appliance = "ST-H1008"
         def pattern = /([A-Z][A-Z]-[A-Z]\d\d\d\d)-([A-Z][A-Z]-[A-Z]\d\d\d\d)-.*/
         def generation
         def commonLabels
