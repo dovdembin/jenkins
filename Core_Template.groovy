@@ -11,8 +11,8 @@ node {
         // def labels = "-l EX\\|MLK\\|Riptide,CopperBlade\\|LightBlade"
         // def appliance = "RT-D0201-RT-D0197-federation-TAG"
         
-        tagsList = libOtel.getListTags(labels, appliance)
-        generations = libOtel.getListGenertions(appliance)
+        def tagsList = libOtel.getListTags(labels, appliance)
+        def generations = libOtel.getListGenertions(appliance)
         
         sh(script: """
         docker run --rm -e OTEL_EXPORTER_OTLP_ENDPOINT \
