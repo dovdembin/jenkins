@@ -15,7 +15,7 @@ node {
         docker run --rm -e OTEL_EXPORTER_OTLP_ENDPOINT \
             dell/opentelemetry-cli:0.4.0 \
             metric counter tridevlab.test-counter \
-            -a "str[]:test.tags=ff " \
+            -a "str[]:test.tags=-l ff" \
             -a "str[]:test.generation=rr "
     """, label: "Report OTel", returnStatus: true)
     }
