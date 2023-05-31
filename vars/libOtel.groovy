@@ -16,7 +16,7 @@ def getLabels(String str) {
 
 def getTags(String appliance) {
 	try {
-		def cmd = "curl -s --location '${LABJUNGLE_URL}/api/v1/cluster/?api_key=${LABJUNGLE_KEY}&name=${appliance}'"
+		def cmd = "curl -s --location '${LABJUNGLE_URL}/api/v1/clsuster/?api_key=${LABJUNGLE_KEY}&name=${appliance}'"
 		cmd = cmd + ' | jq  .objects[].tags'
 		def tags = sh(script: cmd, returnStdout: true, label: "getTags")
 		return tags
