@@ -31,7 +31,7 @@ def getListTags(String labels, String appliance) {
         def intersection1 = getIntersection(labelsWithCommas, tags1)
 		def tags2 = getTags(res1[2])
         def intersection2 = getIntersection(labelsWithCommas, tags2)
-		ArrayList combine = intersection1 + intersection2
+		def combine = intersection1 + intersection2
 		return combine.join(",")
 	} else {
 		def tags = getTags(appliance)
