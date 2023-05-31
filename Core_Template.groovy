@@ -5,7 +5,7 @@ node {
 
     stage('Preparation') { // for display purposes
          
-        def labels = "-l EX\\|Riptide\|MLK"
+        def labels = "-l EX\\|Riptide\\|MLK"
         def appliance = "RT-D3108"
         
         def tagsList = libOtel.getListTags(labels, appliance)
