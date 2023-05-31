@@ -5,8 +5,8 @@ node {
 
     stage('Preparation') { // for display purposes
          
-        def labels = "-l MLK-EX1\\|MLK-EX2\\|MLK-EX3\\|MLK-EX4,NVMeOF-FC,PhysicalLG,fc"
-        def appliance = "WK-D0028"
+        def labels = "-l EX\|MLK,PhysicalLG"
+        def appliance = "WX-D0756-WK-D0658-TAG"
 
         // def labels = "-l EX\\|MLK\\|Riptide,CopperBlade\\|LightBlade"
         // def appliance = "RT-D0201-RT-D0197-federation-TAG"
