@@ -8,10 +8,8 @@ node {
         def labels = ""
         def appliance = "hpk-balin17.xiohpk.lab.emc.com"
         
-        if(!appliance.contains(".")) {
-            def tagsList = libOtel.getListTags(labels, appliance)
-            def generations = libOtel.getListGenertions(appliance)
-        }
+        def tagsList = libOtel.getListTags(labels, appliance)
+        def generations = libOtel.getListGenertions(appliance)
         
         sh(script: """
         docker run --rm -e OTEL_EXPORTER_OTLP_ENDPOINT \

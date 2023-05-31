@@ -29,20 +29,21 @@ def getIntersection(String lables, String tags) {
 
 def getListTags(String labels, String appliance) {
 	def labelsWithCommas = getLabels(labels)
-
-	if(appliance.length() > 8) {
-		def m1 = appliance.substring(0,8)
-		def m2 = appliance.substring(9,17)
-		def tags1 = getTags(m1)
-        def intersection1 = getIntersection(labelsWithCommas, tags1)
-		def tags2 = getTags(m2)
-        def intersection2 = getIntersection(labelsWithCommas, tags2)
-		ArrayList combine = intersection1 + intersection2
-		return combine.join(",")
-	} else {
-		def tags = getTags(appliance)
-        def intersection = getIntersection(labelsWithCommas, tags)
-        return intersection.join(",")
+	if(appliance.contains("-")) {
+		if(appliance.length() > 8) {
+			def m1 = appliance.substring(0,8)
+			def m2 = appliance.substring(9,17)
+			def tags1 = getTags(m1)
+			def intersection1 = getIntersection(labelsWithCommas, tags1)
+			def tags2 = getTags(m2)
+			def intersection2 = getIntersection(labelsWithCommas, tags2)
+			ArrayList combine = intersection1 + intersection2
+			return combine.join(",")
+		} else {
+			def tags = getTags(appliance)
+			def intersection = getIntersection(labelsWithCommas, tags)
+			return intersection.join(",")
+		}
 	}
 }
 
@@ -56,11 +57,13 @@ def getGeneration(String appliance) {
 
 
 def getListGenertions(String appliance) {
-	if(appliance.length() > 8) {
-		def m1 = appliance.substring(0,8)
-		def m2 = appliance.substring(9,17)
-		return [getGeneration(m1),getGeneration(m2)].join(",")
-	} else {
-		return getGeneration(appliance)
+	if(appliance.contains("-")) {
+		if(appliance.length() > 8) {
+			def m1 = appliance.substring(0,8)
+			def m2 = appliance.substring(9,17)
+			return [getGeneration(m1),getGeneration(m2)].join(",")
+		} else {
+			return getGeneration(appliance)
+		}
 	}
 }
