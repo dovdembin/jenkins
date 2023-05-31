@@ -35,7 +35,7 @@ def getListTags(String labels, String appliance) {
 	} else {
 		def tags = getTags(appliance)
         def intersection = getIntersection(labelsWithCommas, tags)
-        return intersection
+        return intersection.join(",")
 	}
 }
 
