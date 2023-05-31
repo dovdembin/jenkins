@@ -49,7 +49,7 @@ def getGeneration(String appliance) {
 	def cmd = "curl -s --location '${LABJUNGLE_URL}/api/v1/cluster/?api_key=${LABJUNGLE_KEY}&name=${appliance}'"
 	cmd = cmd + ' | jq  .objects[].generation.name'
 	def generation_name = sh(script: cmd, returnStdout: true, label: "getGeneration")
-	return generation_name
+	return generation_name.trim()
 }
 
 

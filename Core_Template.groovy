@@ -13,7 +13,7 @@ node {
         
         tagsList = libOtel.getListTags(labels, appliance)
         generations = libOtel.getListGenertions(appliance)
-        println(generations)
+        
         sh(script: """
         docker run --rm -e OTEL_EXPORTER_OTLP_ENDPOINT \
             dell/opentelemetry-cli:0.4.0 \
