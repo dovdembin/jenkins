@@ -51,7 +51,7 @@ def getGeneration(String appliance) {
 	return generation_name
 }
 
-@NonCPS
+
 def getListGenertions(String appliance) {
 	def pattern = /([A-Z][A-Z]-[A-Z]\d\d\d\d)-([A-Z][A-Z]-[A-Z]\d\d\d\d)-.*/
 	if(appliance ==~ pattern){
