@@ -21,7 +21,6 @@ def getIntersection(String lables, String tags) {
 	return array1.intersect(array2)
 }
 
-@NonCPS
 def getListTags(String labels, String appliance) {
 	def labelsWithCommas = getLabels(labels)
 	def pattern = /([A-Z][A-Z]-[A-Z]\d\d\d\d)-([A-Z][A-Z]-[A-Z]\d\d\d\d)-.*/
@@ -31,7 +30,7 @@ def getListTags(String labels, String appliance) {
         def intersection1 = getIntersection(labelsWithCommas, tags1)
 		def tags2 = getTags(res1[2])
         def intersection2 = getIntersection(labelsWithCommas, tags2)
-		def combine = intersection1 + intersection2
+		ArrayList combine = intersection1 + intersection2
 		return combine.join(",")
 	} else {
 		def tags = getTags(appliance)
