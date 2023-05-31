@@ -52,7 +52,9 @@ def getListGenertions(String appliance) {
 	def pattern = /([A-Z][A-Z]-[A-Z]\d\d\d\d)-([A-Z][A-Z]-[A-Z]\d\d\d\d)-.*/
 	if(appliance ==~ pattern){
 		def (res1) = appliance =~ pattern
-		return [getGeneration(res1[1]),getGeneration(res1[2])].join(",")
+		def m1 = res1[1]
+		def m2 = res1[2]
+		return [getGeneration(m1),getGeneration(m2)].join(",")
 	} else {
 		return getGeneration(appliance)
 	}
