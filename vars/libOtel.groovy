@@ -26,8 +26,9 @@ def getListTags(String labels, String appliance) {
 	def pattern = /([A-Z][A-Z]-[A-Z]\d\d\d\d)-([A-Z][A-Z]-[A-Z]\d\d\d\d)-.*/
 	if(appliance ==~ pattern){
 		def (res1) = appliance =~ pattern
-		def m1 = res1[1]
-		def m2 = res1[2]
+		ArrayList arr = res1
+		def m1 = arr[1]
+		def m2 = arr[2]
 		def tags1 = getTags(m1)
         def intersection1 = getIntersection(labelsWithCommas, tags1)
 		def tags2 = getTags(m2)
@@ -52,8 +53,9 @@ def getListGenertions(String appliance) {
 	def pattern = /([A-Z][A-Z]-[A-Z]\d\d\d\d)-([A-Z][A-Z]-[A-Z]\d\d\d\d)-.*/
 	if(appliance ==~ pattern){
 		def (res1) = appliance =~ pattern
-		def m1 = res1[1]
-		def m2 = res1[2]
+		ArrayList arr = res1
+		def m1 = arr[1]
+		def m2 = arr[2]
 		return [getGeneration(m1),getGeneration(m2)].join(",")
 	} else {
 		return getGeneration(appliance)
