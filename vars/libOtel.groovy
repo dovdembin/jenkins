@@ -19,8 +19,10 @@ def getTags(String appliance) {
 
 
 def getIntersection(String lables, String tags) {
-	ArrayList array1 = tags.split(",")
-	ArrayList array2 = lables.split(",")
+	def lablesUppercase = lables.toUpperCase()
+	def tagsUppercaseText = tags.toUpperCase()
+	ArrayList array2 = lablesUppercase.split(",")
+	ArrayList array1 = tagsUppercaseText.split(",")
 	return array1.intersect(array2)
 }
 
