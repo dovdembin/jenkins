@@ -10,35 +10,15 @@ node {
 
         def labels = "-l EX\\|MLK\\|Riptide,CopperBlade\\|LightBlade"
         def appliance = "RT-D0201-RT-D0197-federation-TAG"
-        def labels_separator = libOtel.getLabels("${labels}")
-        def pattern = /([A-Z][A-Z]-[A-Z]\d\d\d\d)-([A-Z][A-Z]-[A-Z]\d\d\d\d)-.*/
-        def generation
-        def commonLabels
-        if(appliance ==~ pattern) {
-            def appliances =  libOtel.getFederation(appliance)
-            def tags1 = libOtel.getTags(appliances[0])
-            def tags2 = libOtel.getTags(appliances[1])
-            def intersection1 = libOtel.getIntersection(labels_separator, tags1)
-            def intersection2 = libOtel.getIntersection(labels_separator, tags2)
-            intersection_commas = intersection1 + intersection2
-            intersection_commas += intersection_commas.join(",")
-            def generation1 = generation=libOtel.getGeneration(appliances[0])
-            def generation2 = generation=libOtel.getGeneration(appliances[1])
-            generation = [generation1,generation2].join(",")
-
-        } else {
-            def tags = libOtel.getTags(appliance)
-            def intersection = libOtel.getIntersection(labels_separator, tags)
-            intersection_commas = intersection.join(",")
-            generation = libOtel.getGeneration(appliance)
-        }
-
+        
+        tagsList = getListTags(labels, appliance)
+        generations = libOtel.getListGenertions(appliance)
         sh(script: """
         docker run --rm -e OTEL_EXPORTER_OTLP_ENDPOINT \
             dell/opentelemetry-cli:0.4.0 \
             metric counter tridevlab.test-counter \
-            -a "str[]:test.my-array=${intersection_commas}" \
-            -a "str[]:test.generation=${generation}"
+            -a "str[]:test.my-array=${tagsList}" \
+            -a "str[]:test.generation=${generations}"
     """, label: "Report OTel", returnStatus: true)
     }
     
