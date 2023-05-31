@@ -5,11 +5,11 @@ node {
 
     stage('Preparation') { // for display purposes
          
-        def labels = "-l MLK-EX1\\|MLK-EX2\\|MLK-EX3\\|MLK-EX4,PhysicalLG"
-        def appliance = "WK-D0089"
+        // def labels = "-l MLK-EX1\\|MLK-EX2\\|MLK-EX3\\|MLK-EX4,PhysicalLG"
+        // def appliance = "WK-D0089"
 
-        // def labels = "-l EX\\|MLK\\|Riptide,CopperBlade\\|LightBlade"
-        // def appliance = "RT-D0201-RT-D0197-federation-TAG"
+        def labels = "-l EX\\|MLK\\|Riptide,CopperBlade\\|LightBlade"
+        def appliance = "RT-D0201-RT-D0197-federation-TAG"
         
         tagsList = libOtel.getListTags(labels, appliance)
         generations = libOtel.getListGenertions(appliance)
