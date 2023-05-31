@@ -31,7 +31,6 @@ def getListTags(String labels, String appliance) {
 	if(appliance.length() > 8) {
 		m1 = appliance.substring(0,8)
 		m2 = appliance.substring(9,17)
-		def (res1) = appliance =~ pattern
 		def tags1 = getTags(m1)
         def intersection1 = getIntersection(labelsWithCommas, tags1)
 		def tags2 = getTags(m2)
