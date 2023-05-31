@@ -27,12 +27,14 @@ def getIntersection(String lables, String tags) {
 
 def getListTags(String labels, String appliance) {
 	def labelsWithCommas = getLabels(labels)
-	def pattern = /([A-Z][A-Z]-[A-Z]\d\d\d\d)-([A-Z][A-Z]-[A-Z]\d\d\d\d)-.*/
-	if(appliance ==~ pattern){
+	 
+	if(appliance.length() > 8) {
+		m1 = appliance.substring(0,8)
+		m2 = appliance.substring(9,17)
 		def (res1) = appliance =~ pattern
-		def tags1 = getTags(res1[1])
+		def tags1 = getTags(m1)
         def intersection1 = getIntersection(labelsWithCommas, tags1)
-		def tags2 = getTags(res1[2])
+		def tags2 = getTags(m2)
         def intersection2 = getIntersection(labelsWithCommas, tags2)
 		ArrayList combine = intersection1 + intersection2
 		return combine.join(",")
@@ -53,10 +55,10 @@ def getGeneration(String appliance) {
 
 
 def getListGenertions(String appliance) {
-	def pattern = /([A-Z][A-Z]-[A-Z]\d\d\d\d)-([A-Z][A-Z]-[A-Z]\d\d\d\d)-.*/
-	if(appliance ==~ pattern){
-		def (res1) = appliance =~ pattern
-		return [getGeneration(res1[1]),getGeneration(res1[2])].join(",")
+	if(appliance.length() > 8) {
+		m1 = appliance.substring(0,8)
+		m2 = appliance.substring(9,17)
+		return [getGeneration(m1),getGeneration(m2)].join(",")
 	} else {
 		return getGeneration(appliance)
 	}
