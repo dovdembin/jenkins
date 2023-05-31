@@ -17,7 +17,7 @@ def getTags(String appliance) {
 	return tags
 }
 
-@NonCPS
+
 def getIntersection(String lables, String tags) {
 	ArrayList array1 = tags.split(",")
 	ArrayList array2 = lables.split(",")
