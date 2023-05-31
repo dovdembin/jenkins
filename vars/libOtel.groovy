@@ -19,7 +19,7 @@ def getTags(String appliance) {
 		def tags = sh(script: cmd, returnStdout: true, label: "getTags")
 		return tags
 	} catch(Exception  e1) {
-		println("ERROR: in libOtel getTags")
+		println(e1)
 	}
 }
 
