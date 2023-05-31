@@ -28,8 +28,8 @@ def getIntersection(String lables, String tags) {
 
 
 def getListTags(String labels, String appliance) {
-	def labelsWithCommas = getLabels(labels)
 	if(!appliance.contains(".")) {
+		def labelsWithCommas = getLabels(labels)
 		if(appliance.length() > 8) {
 			def m1 = appliance.substring(0,8)
 			def m2 = appliance.substring(9,17)
