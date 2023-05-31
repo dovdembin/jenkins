@@ -31,8 +31,8 @@ def getListTags(String labels, String appliance) {
 	def labelsWithCommas = getLabels(labels)
 
 	if(appliance.length() > 8) {
-		m1 = appliance.substring(0,8)
-		m2 = appliance.substring(9,17)
+		def m1 = appliance.substring(0,8)
+		def m2 = appliance.substring(9,17)
 		def tags1 = getTags(m1)
         def intersection1 = getIntersection(labelsWithCommas, tags1)
 		def tags2 = getTags(m2)
@@ -57,8 +57,8 @@ def getGeneration(String appliance) {
 
 def getListGenertions(String appliance) {
 	if(appliance.length() > 8) {
-		m1 = appliance.substring(0,8)
-		m2 = appliance.substring(9,17)
+		def m1 = appliance.substring(0,8)
+		def m2 = appliance.substring(9,17)
 		return [getGeneration(m1),getGeneration(m2)].join(",")
 	} else {
 		return getGeneration(appliance)
