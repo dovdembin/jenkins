@@ -5,8 +5,8 @@ node {
 
     stage('Preparation') { // for display purposes
          
-        def labels = "EX\\|Riptide\\|MLK"
-        def appliance = ""
+        def labels = ""
+        def appliance = "hpk-balin17.xiohpk.lab.emc.com"
         
         def tagsList = libOtel.getListTags(labels, appliance)
         def generations = libOtel.getListGenertions(appliance)
