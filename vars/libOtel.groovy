@@ -24,6 +24,7 @@ def getIntersection(String lables, String tags) {
 def getListTags(String labels, String appliance) {
 	def labelsWithCommas = getLabels(labels)
 	def pattern = /([A-Z][A-Z]-[A-Z]\d\d\d\d)-([A-Z][A-Z]-[A-Z]\d\d\d\d)-.*/
+	@NonCPS
 	if(appliance ==~ pattern){
 		def (res1) = appliance =~ pattern
 		def tags1 = getTags(res1[1])
